@@ -1,48 +1,46 @@
-# Doc Whisperer
+# 🚀 Doc Whisperer – AI PDF Insights App
 
-A beautiful Next.js App Router app that lets you chat with any PDF using Claude AI.
+A modern **Next.js App Router** application that lets you upload PDFs and chat with them using AI — with **real-time streaming responses** for a fast, ChatGPT-like experience.
 
-## Setup
+---
 
-1. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## ✨ Features
 
-2. **Add your API key**
-   ```bash
-   cp .env.local.example .env.local
-   # Edit .env.local and add your Anthropic API key
-   ```
+- 📄 Upload any PDF (up to 20MB)
+- 🤖 Ask questions about your document
+- ⚡ Real-time streaming responses (SSE)
+- 🧠 Powered by AI (Claude / Groq-ready architecture)
+- 💬 Chat-like interface (smooth UX)
+- 📚 Multiple documents support (sidebar navigation)
+- 💾 Conversation history stored in browser (localStorage)
+- 📱 Fully responsive (mobile + desktop)
+- 🎨 Beautiful dark UI with animated gradient
 
-3. **Run in development**
-   ```bash
-   npm run dev
-   ```
+---
 
-4. **Build for production**
-   ```bash
-   npm run build
-   npm start
-   ```
+## 🧠 How It Works
 
-## Features
+1. Upload a PDF
+2. Text is extracted on the client
+3. Ask a question
+4. Request is sent to AI API
+5. Response is streamed back in real-time (SSE)
+6. UI updates instantly as tokens arrive
 
-- Upload any PDF (up to 20 MB)
-- Chat with your document using Claude AI (streaming responses)
-- Conversation history saved locally in browser
-- Multiple documents supported via sidebar
-- Fully responsive — works on mobile and desktop
-- Beautiful dark UI with animated gradient background
+---
 
-## Stack
+## 🛠 Tech Stack
 
-- **Next.js 16** (App Router, Edge Runtime API)
-- **Anthropic Claude** (`claude-3-5-haiku`) for AI responses
-- **pdfjs-dist** for client-side PDF text extraction
-- **react-markdown** for rendering AI responses
-- **lucide-react** for icons
-- **Tailwind CSS v4** + custom CSS design system
+- **Frontend:** Next.js 16 (App Router)
+- **Backend:** Edge API Routes
+- **AI:** Anthropic Claude (`claude-3-5-haiku`)
+- **Streaming:** Server-Sent Events (SSE)
+- **PDF Parsing:** pdfjs-dist
+- **UI:** Tailwind CSS v4 + custom design system
+- **Markdown Rendering:** react-markdown
+- **Icons:** lucide-react
+
+---
 
 ## Project structure
 
@@ -62,3 +60,27 @@ app/
 ├── globals.css             # Design system
 └── layout.js / page.js
 ```
+
+## Setup
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Add your API key**
+   ```bash
+   create .env.local
+   # Edit .env.local and add your Groq API key GROQ_API_KEY=key_here
+   ```
+
+3. **Run in development**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   npm start
+   ```
