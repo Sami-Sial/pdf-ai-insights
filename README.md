@@ -84,3 +84,40 @@ app/
    npm run build
    npm start
    ```
+
+## 📱 Mobile App Builds (Capacitor)
+
+This project uses [Capacitor](https://capacitorjs.com/) to build native iOS and Android apps from the Next.js web application.
+
+### Prerequisites
+- **iOS**: Xcode installed (macOS only)
+- **Android**: Android Studio installed
+
+### Building for Mobile
+
+1. **Export the Next.js app**
+   Build the static files for the web application:
+   ```bash
+   npm run build
+   ```
+   This generates the static files in the `out` directory (ensure `output: 'export'` is set in `next.config.mjs`).
+
+2. **Sync with Capacitor**
+   Sync the built web assets to the native mobile projects:
+   ```bash
+   npx cap sync
+   ```
+
+3. **Open native IDEs**
+   Open the respective native IDE to run or deploy the app:
+   - **Android:** 
+     ```bash
+     npx cap open android
+     ```
+   - **iOS:**
+     ```bash
+     npx cap open ios
+     ```
+
+From Xcode or Android Studio, you can build, test on emulators, and deploy the application to physical devices.
+
