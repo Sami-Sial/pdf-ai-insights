@@ -1,5 +1,15 @@
 export const runtime = 'edge'
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+}
+
+export async function OPTIONS() {
+  return new Response(null, { headers: corsHeaders })
+}
+
 export async function POST(request) {
   const { messages, pdfText, pdfName } = await request.json()
 
@@ -7,7 +17,7 @@ export async function POST(request) {
   if (!apiKey) {
     return new Response(JSON.stringify({ error: 'GROQ_API_KEY not configured' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...corsHeaders },
     })
   }
 
@@ -40,7 +50,7 @@ Answer the user's questions based on this document. Be accurate, clear, and conc
     const err = await response.text()
     return new Response(JSON.stringify({ error: err }), {
       status: response.status,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...corsHeaders },
     })
   }
 
@@ -50,6 +60,7 @@ Answer the user's questions based on this document. Be accurate, clear, and conc
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
       'Connection': 'keep-alive',
+      ...corsHeaders,
     },
   })
 }
