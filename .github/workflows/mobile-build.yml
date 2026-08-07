@@ -33,6 +33,7 @@ jobs:
           npm run build
         env:
           NEXT_PUBLIC_API_URL: https://pdf-ai-insights.vercel.app
+          MOBILE_BUILD: "true"
 
       - name: Sync Capacitor
         run: |
@@ -69,6 +70,7 @@ jobs:
           npm run build
         env:
           NEXT_PUBLIC_API_URL: https://pdf-ai-insights.vercel.app
+          MOBILE_BUILD: "true"
 
       - name: Sync Capacitor
         run: |
