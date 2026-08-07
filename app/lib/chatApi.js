@@ -1,5 +1,6 @@
 export async function streamChat({ messages, pdfText, pdfName, onDelta, onDone, signal }) {
-  const resp = await fetch('/api/chat', {
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || ''
+  const resp = await fetch(`${baseUrl}/api/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ messages, pdfText, pdfName }),
